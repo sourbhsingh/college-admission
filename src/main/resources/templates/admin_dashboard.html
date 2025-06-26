@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body class="container mt-5">
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body class="container mt-5">
 
-<h2>Admin Dashboard</h2>
+    <h2>Admin Dashboard</h2>
 
-<div class="mt-4">
-    <a href="admission_status.html" class="btn btn-info">View Student Admission Status</a>
-    <a href="merit_list.html" class="btn btn-secondary">View Merit List</a>
-    <a href="courses.html" class="btn btn-warning">Manage Courses</a>
-    <a href="/" class="btn btn-secondary">Home</a>
+    <div class="mt-4">
+        <a th:href="@{/admission_status}" class="btn btn-info">View Student Admission Status</a>
+        <a th:href="@{/students/meritlist}" class="btn btn-secondary">View Merit List</a>
+        <a th:href="@{/courses}" class="btn btn-warning">Manage Courses</a>
+        <a th:href="@{/}" class="btn btn-secondary">Home</a>
+    </div>
 
-</div>
+    <a th:href="@{/}" class="btn btn-link mt-3">Back to Home</a>
 
-<a href="index.html" class="btn btn-link mt-3">Back to Home</a>
-
-</body>
-</html>
+    </body>
+    </html>

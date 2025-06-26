@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Merit List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -19,17 +19,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td>Rahul</td>
-        <td>85</td>
-        <td>BCA</td>
-        <td>Admitted</td>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.totalMarks}"></td>
+        <td th:text="${student.course}"></td>
+        <td th:text="${student.status}"></td>
     </tr>
     </tbody>
 </table>
 
-<a href="admin_dashboard.html" class="btn btn-link mt-3">Back to Dashboard</a>
+<a th:href="@{/admin/dashboard}" class="btn btn-link mt-3">Back to Dashboard</a>
+
 
 </body>
 </html>

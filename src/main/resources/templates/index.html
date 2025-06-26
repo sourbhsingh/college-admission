@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>College Admission Management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -9,8 +9,8 @@
 <h2>Welcome to College Admission Management System</h2>
 
 <div class="mt-4">
-    <a href="admin_dashboard.html" class="btn btn-primary">Go to Admin Dashboard</a>
-    <a href="student_register.html" class="btn btn-success">Student Registration</a>
+    <a th:href="@{/admin/dashboard}" class="btn btn-primary">Go to Admin Dashboard</a>
+    <a th:href="@{/students/register}" class="btn btn-success">Student Registration</a>
 </div>
 
 </body>

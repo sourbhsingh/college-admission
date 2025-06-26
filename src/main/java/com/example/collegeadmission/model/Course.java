@@ -16,13 +16,12 @@ import java.util.List;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String courseName;
     private int availableSeats;
 
-    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
-    List<Student> students;
-
-
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Student> students;
 }

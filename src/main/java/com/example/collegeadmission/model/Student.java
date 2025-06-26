@@ -1,7 +1,6 @@
 package com.example.collegeadmission.model;
 
 import com.example.collegeadmission.helper.Status;
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,12 +16,14 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
     private String email;
     private String phoneNumber;
     private double totalMarks;
+
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.PENDING;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
@@ -30,6 +31,4 @@ public class Student {
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Document document;
-
-
 }

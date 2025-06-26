@@ -1,5 +1,6 @@
 package com.example.collegeadmission.service;
 
+import com.example.collegeadmission.model.Course;
 import com.example.collegeadmission.model.Document;
 import com.example.collegeadmission.repository.CourseRepository;
 import com.example.collegeadmission.repository.DocumentRepository;
@@ -9,17 +10,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class CoureService {
+public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
     @Autowired
     private DocumentRepository docRepository;
-    private String uploadDir = System.getProperty("user.dir") + "/target/classes/static/uploads";
+    private final String uploadDir = System.getProperty("user.dir") + "/target/classes/static/uploads";
 
+    public void addCourse(Course course) {
+        courseRepository.save(course);
+    }
+
+    public List<Course> getAllCourses() {
+        return courseRepository.findAll();
+    }
 
     public void saveFile(MultipartFile file) throws IOException {
         File dir = new File(uploadDir);
@@ -40,6 +47,7 @@ public class CoureService {
 
         docRepository.save(doc);
     }
+
 
     public List<Document> getAllFiles() {
         return docRepository.findAll();

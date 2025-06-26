@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Admission Status</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -21,23 +21,24 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td>Rahul</td>
-        <td>rahul@example.com</td>
-        <td>85</td>
-        <td>BCA</td>
-        <td>Pending</td>
+    <tr th:each="student : ${students}">
+        ```html
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.totalMarks}"></td>
+        <td th:text="${student.courseName}"></td>
+        <td th:text="${student.status}"></td>
+        ```
         <!-- <td><a href="#" class="btn btn-success btn-sm">Allot</a></td> -->
     </tr>
     </tbody>
 </table>
 
-<form action="" method="post">
+<form th:action="@{/allot}" method="post">
     <button class="btn btn-danger mt-3">Allot Seats (Merit Based)</button>
 </form>
-
-<a href="admin_dashboard.html" class="btn btn-link mt-3">Back to Dashboard</a>
+<a th:href="@{/admin/dashboard}" class="btn btn-link mt-3">Back to Dashboard</a>
 
 </body>
 </html>
